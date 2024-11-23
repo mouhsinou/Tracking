@@ -2,8 +2,8 @@ import os
 import cv2
 
 # Chemins des dossiers
-input_folder = "./output_frames"
-output_folder = "./faces"
+input_folder = "./Images_Peace"
+output_folder = "./faces_peace"
 
 # Crée le dossier de sortie s'il n'existe pas
 os.makedirs(output_folder, exist_ok=True)
@@ -30,7 +30,7 @@ for filename in os.listdir(input_folder):
         for i, (x, y, w, h) in enumerate(faces):
             # Définir la taille 225x225 centrée sur le visage
             cx, cy = x + w // 2, y + h // 2
-            half_size = 225 // 2
+            half_size = 125 // 2
 
             # Calcul des coordonnées pour la découpe
             x1, y1 = max(cx - half_size, 0), max(cy - half_size, 0)
@@ -40,7 +40,7 @@ for filename in os.listdir(input_folder):
             face_crop = image[y1:y2, x1:x2]
 
             # Redimensionner exactement à 225x225 si les bords dépassent
-            face_resized = cv2.resize(face_crop, (225, 225), interpolation=cv2.INTER_AREA)
+            face_resized = cv2.resize(face_crop, (125, 125), interpolation=cv2.INTER_AREA)
 
             # Sauvegarder l'extraction
             output_path = os.path.join(output_folder, f"{os.path.splitext(filename)[0]}_face_{i}.jpg")
