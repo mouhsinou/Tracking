@@ -14,7 +14,7 @@ drone.streamon()
 
 # Définir le codec et initialiser l'objet VideoWriter pour MP4
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('C://Users//EEIA//Desktop//DRONE_EEIA_2024//VID.mp4', fourcc, 20.0, (640, 480))
+out = cv2.VideoWriter('/home/morel/Documents/dev/Tracking/DRONE_ClubIA_2024/VID.mp4', fourcc, 20.0, (640, 480))
 
 # Temps de début
 temps_de_debut = time.time()
